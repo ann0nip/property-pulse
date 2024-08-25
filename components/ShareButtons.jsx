@@ -1,3 +1,4 @@
+'use client';
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -9,8 +10,12 @@ import {
   EmailIcon,
 } from 'react-share';
 
-const ShareButtons = ({ property }) => {
-  const shareUrl = `${process.env.NEXT_PUBLIC_DOMAIN}/properties/${property._id}`;
+const ShareButtons = ({ property, PUBLIC_DOMAIN }) => {
+  // NOTE: here we receive a prop from our parent page component which is
+  // server rendered and knows if we are in deployed to Vercel or developing
+  // locally.
+
+  const shareUrl = `${PUBLIC_DOMAIN}/properties/${property._id}`;
 
   return (
     <>

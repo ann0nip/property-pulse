@@ -13,10 +13,14 @@ export const metadata = {
   keywords: 'rental, find rentals, find properties',
 };
 
+// NOTE: with moving getting the users messages to GlobalProvider then
+// GlobalProvider now needs to be a descendent of AuthProvider to be able to
+// access it's state.
+
 const MainLayout = ({ children }) => {
   return (
-    <GlobalProvider>
-      <AuthProvider>
+    <AuthProvider>
+      <GlobalProvider>
         <html lang='en'>
           <body>
             <Navbar />
@@ -25,8 +29,8 @@ const MainLayout = ({ children }) => {
             <ToastContainer />
           </body>
         </html>
-      </AuthProvider>
-    </GlobalProvider>
+      </GlobalProvider>
+    </AuthProvider>
   );
 };
 export default MainLayout;
