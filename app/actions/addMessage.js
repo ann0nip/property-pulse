@@ -1,7 +1,7 @@
 'use server';
 
-import connectDB from '@/config/database';
-import Message from '@/models/Message';
+import dbConnect from '@/config/database';
+import Message from '@/models/message';
 import { getSessionUser } from '@/utils/getSessionUser';
 import { revalidatePath } from 'next/cache';
 
@@ -11,7 +11,7 @@ import { revalidatePath } from 'next/cache';
 // https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations#server-side-validation-and-error-handling
 
 async function addMessage(previousState, formData) {
-  await connectDB();
+  await dbConnect();
 
   const sessionUser = await getSessionUser();
 

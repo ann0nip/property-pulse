@@ -1,384 +1,570 @@
 [
   {
-    "_id": "1",
-    "owner": "1",
-    "name": "Boston Commons Retreat",
-    "type": "Apartment",
-    "description": "This is a beautiful apartment located near the commons. It is a 2 bedroom apartment with a full kitchen and bathroom. It is available for weekly or monthly rentals.",
+    "_id": "4c880a7c-d44b-4cbb-883b-684181fd4702",
+    "owner": "4b0a8305-cf84-4345-b49d-93d2484b2a29",
+    "manager": "a9a2d90f-e6e5-435a-b314-449769a98497",
+    "name": "Luxury Apartment",
+    "type": "apartment",
+    "status": "available",
+    "description": "Luxury Apartment located in New York, NY, offering 3 beds and 2 baths.",
     "location": {
-      "street": "120 Tremont Street",
-      "city": "Boston",
-      "state": "MA",
-      "zipcode": "02108"
-    },
-    "beds": 2,
-    "baths": 1,
-    "square_feet": 1500,
-    "amenities": [
-      "Wifi",
-      "Full kitchen",
-      "Washer & Dryer",
-      "Free Parking",
-      "Hot Tub",
-      "24/7 Security",
-      "Wheelchair Accessible",
-      "Elevator Access",
-      "Dishwasher",
-      "Gym/Fitness Center",
-      "Air Conditioning",
-      "Balcony/Patio",
-      "Smart TV",
-      "Coffee Maker"
-    ],
-    "rates": {
-      "weekly": 1100,
-      "monthly": 4200
-    },
-    "seller_info": {
-      "name": "John Doe",
-      "email": "john@gmail.com",
-      "phone": "617-555-5555"
-    },
-    "images": ["a1.jpg", "a2.jpg", "a3.jpg"],
-    "is_featured": false,
-    "createdAt": "2024-01-01T00:00:00.000Z",
-    "updatedAt": "2024-01-01T00:00:00.000Z"
-  },
-  {
-    "_id": "2",
-    "owner": "1",
-    "name": "Cozy Downtown Loft",
-    "type": "Apartment",
-    "description": "A cozy downtown loft with great city views.",
-    "location": {
-      "street": "45 Main Street",
+      "street": "123 Apartment St",
       "city": "New York",
       "state": "NY",
-      "zipcode": "10001"
+      "zipcode": "12345",
+      "country": "USA",
+      "neighborhood": "Central",
+      "coordinates": {
+        "lat": 40.712776,
+        "lng": -74.005974
+      }
     },
-    "beds": 1,
-    "baths": 1,
-    "square_feet": 1800,
-    "amenities": [
-      "Wifi",
-      "Full kitchen",
-      "Washer & Dryer",
-      "Free Parking",
-      "Hot Tub",
-      "24/7 Security",
-      "Wheelchair Accessible",
-      "Elevator Access",
-      "Dishwasher",
-      "High-Speed Internet",
-      "Air Conditioning",
-      "Smart TV",
-      "Outdoor Grill/BBQ"
+    "size": 300,
+    "size_unit": "square_meters",
+    "beds": 3,
+    "baths": 2,
+    "features": [
+      "gym",
+      "pool"
     ],
-    "rates": {
-      "weekly": 1000,
-      "monthly": 4000
+    "financials": {
+      "rent": 3000,
+      "deposit": 6000,
+      "fees": [
+        {
+          "description": "Cleaning fee",
+          "amount": 100
+        },
+        {
+          "description": "Service charge",
+          "amount": 50
+        }
+      ],
+      "currency": "USD"
     },
-    "seller_info": {
-      "name": "Jane Smith",
-      "email": "jane@gmail.com",
-      "phone": "212-555-5555"
+    "rental_contract": {
+      "start_date": "2024-07-26T22:31:46.315337",
+      "end_date": "2025-07-26T22:31:46.315354",
+      "monthly_rent": 3000,
+      "payments": [
+        {
+          "date": "2024-08-10T22:31:46.315358",
+          "amount": 3000,
+          "status": "paid"
+        }
+      ]
     },
-    "images": ["b1.jpg", "b2.jpg", "b3.jpg"],
+    "media": {
+      "images": [
+        "https://example.com/images/apartment1.jpg",
+        "https://example.com/images/apartment2.jpg"
+      ],
+      "videos": [
+        "https://example.com/videos/apartment-tour.mp4"
+      ],
+      "floor_plans": [
+        "https://example.com/floor-plans/apartment.png"
+      ]
+    },
     "is_featured": false,
-    "createdAt": "2024-01-02T00:00:00.000Z",
-    "updatedAt": "2024-01-02T00:00:00.000Z"
+    "createdAt": "2024-08-25T22:31:46.315363",
+    "updatedAt": "2024-08-25T22:31:46.315365"
   },
   {
-    "_id": "3",
-    "owner": "2",
-    "name": "Luxury Condo with a View",
-    "type": "Condo",
-    "description": "Experience luxury in this stunning condo with breathtaking views.",
+    "_id": "e0110e92-2102-4b41-94a3-d7c8d055bf76",
+    "owner": "4b0a8305-cf84-4345-b49d-93d2484b2a29",
+    "manager": "a9a2d90f-e6e5-435a-b314-449769a98497",
+    "name": "Cozy House",
+    "type": "house",
+    "status": "rented",
+    "description": "Cozy House located in Los Angeles, CA, offering 4 beds and 3 baths.",
     "location": {
-      "street": "500 Lux Lane",
+      "street": "123 House St",
       "city": "Los Angeles",
       "state": "CA",
-      "zipcode": "90001"
+      "zipcode": "12345",
+      "country": "USA",
+      "neighborhood": "Central",
+      "coordinates": {
+        "lat": 40.712776,
+        "lng": -74.005974
+      }
     },
-    "beds": 3,
-    "baths": 2,
-    "square_feet": 2200,
-    "amenities": [
-      "Wifi",
-      "Full kitchen",
-      "Washer & Dryer",
-      "Free Parking",
-      "Hot Tub",
-      "24/7 Security",
-      "Wheelchair Accessible",
-      "Elevator Access",
-      "Dishwasher",
-      "Swimming Pool",
-      "Gym/Fitness Center",
-      "Air Conditioning",
-      "Smart TV",
-      "Coffee Maker"
+    "size": 350,
+    "size_unit": "square_meters",
+    "beds": 4,
+    "baths": 3,
+    "features": [
+      "garden",
+      "garage"
     ],
-    "rates": {
-      "nightly": 200,
-      "weekly": 750,
-      "monthly": 3300
+    "financials": {
+      "rent": 4500,
+      "deposit": 9000,
+      "fees": [
+        {
+          "description": "Cleaning fee",
+          "amount": 100
+        },
+        {
+          "description": "Service charge",
+          "amount": 50
+        }
+      ],
+      "currency": "USD"
     },
-    "seller_info": {
-      "name": "David Johnson",
-      "email": "david@gmail.com",
-      "phone": "213-555-5555"
+    "rental_contract": {
+      "start_date": "2024-07-26T22:31:46.315413",
+      "end_date": "2025-07-26T22:31:46.315418",
+      "monthly_rent": 4500,
+      "payments": [
+        {
+          "date": "2024-08-10T22:31:46.315422",
+          "amount": 4500,
+          "status": "paid"
+        }
+      ]
     },
-    "images": ["c1.jpg", "c2.jpg", "c3.jpg"],
+    "media": {
+      "images": [
+        "https://example.com/images/house1.jpg",
+        "https://example.com/images/house2.jpg"
+      ],
+      "videos": [
+        "https://example.com/videos/house-tour.mp4"
+      ],
+      "floor_plans": [
+        "https://example.com/floor-plans/house.png"
+      ]
+    },
     "is_featured": false,
-    "createdAt": "2024-01-03T00:00:00.000Z",
-    "updatedAt": "2024-01-03T00:00:00.000Z"
+    "createdAt": "2024-08-25T22:31:46.315426",
+    "updatedAt": "2024-08-25T22:31:46.315428"
   },
   {
-    "_id": "4",
-    "owner": "2",
-    "name": "Charming Cottage Getaway",
-    "type": "Cottage Or Cabin",
-    "description": "Escape to this charming cottage for a peaceful retreat.",
+    "_id": "57760c15-931f-4c00-956e-80a074d9e3b0",
+    "owner": "4b0a8305-cf84-4345-b49d-93d2484b2a29",
+    "manager": "a9a2d90f-e6e5-435a-b314-449769a98497",
+    "name": "Commercial Office",
+    "type": "commercial",
+    "status": "available",
+    "description": "Commercial Office located in Chicago, IL, offering 0 beds and 2 baths.",
     "location": {
-      "street": "123 Countryside Lane",
-      "city": "Austin",
-      "state": "TX",
-      "zipcode": "78701"
-    },
-    "beds": 1,
-    "baths": 1,
-    "square_feet": 900,
-    "amenities": [
-      "Fireplace",
-      "Outdoor Grill/BBQ",
-      "Balcony/Patio",
-      "Coffee Maker"
-    ],
-    "rates": {
-      "weekly": 2000
-    },
-    "seller_info": {
-      "name": "Emily Davis",
-      "email": "emily@gmail.com",
-      "phone": "512-555-5555"
-    },
-    "images": ["d1.jpg", "d2.jpg", "d3.jpg"],
-    "is_featured": false,
-    "createdAt": "2024-01-04T00:00:00.000Z",
-    "updatedAt": "2024-01-04T00:00:00.000Z"
-  },
-  {
-    "_id": "5",
-    "owner": "3",
-    "name": "Modern Downtown Studio",
-    "type": "Studio",
-    "description": "Stay in style in this modern downtown studio apartment.",
-    "location": {
-      "street": "75 Urban Avenue",
+      "street": "123 Commercial St",
       "city": "Chicago",
       "state": "IL",
-      "zipcode": "60601"
+      "zipcode": "12345",
+      "country": "USA",
+      "neighborhood": "Central",
+      "coordinates": {
+        "lat": 40.712776,
+        "lng": -74.005974
+      }
     },
-    "beds": 1,
-    "baths": 1,
-    "square_feet": 900,
-    "amenities": [
-      "High-Speed Internet",
-      "Smart TV",
-      "Air Conditioning",
-      "Gym/Fitness Center",
-      "Outdoor Grill/BBQ"
+    "size": 150,
+    "size_unit": "square_meters",
+    "beds": 0,
+    "baths": 2,
+    "features": [
+      "garden",
+      "garage"
     ],
-    "rates": {
-      "weekly": 1100,
-      "monthly": 4200
+    "financials": {
+      "rent": 7000,
+      "deposit": 14000,
+      "fees": [
+        {
+          "description": "Cleaning fee",
+          "amount": 100
+        },
+        {
+          "description": "Service charge",
+          "amount": 50
+        }
+      ],
+      "currency": "USD"
     },
-    "seller_info": {
-      "name": "Michael Brown",
-      "email": "michael@gmail.com",
-      "phone": "312-555-5555"
+    "rental_contract": {
+      "start_date": "2024-07-26T22:31:46.315454",
+      "end_date": "2025-07-26T22:31:46.315456",
+      "monthly_rent": 7000,
+      "payments": [
+        {
+          "date": "2024-08-10T22:31:46.315459",
+          "amount": 7000,
+          "status": "paid"
+        }
+      ]
     },
-    "images": ["e1.jpg", "e2.jpg", "e3.jpg"],
-    "is_featured": true,
-    "createdAt": "2024-01-05T00:00:00.000Z",
-    "updatedAt": "2024-01-05T00:00:00.000Z"
+    "media": {
+      "images": [
+        "https://example.com/images/commercial1.jpg",
+        "https://example.com/images/commercial2.jpg"
+      ],
+      "videos": [
+        "https://example.com/videos/commercial-tour.mp4"
+      ],
+      "floor_plans": [
+        "https://example.com/floor-plans/commercial.png"
+      ]
+    },
+    "is_featured": false,
+    "createdAt": "2024-08-25T22:31:46.315462",
+    "updatedAt": "2024-08-25T22:31:46.315464"
   },
   {
-    "_id": "6",
-    "owner": "3",
-    "name": "Seaside Retreat",
-    "type": "House",
-    "description": "Escape to this seaside house for a relaxing getaway.",
+    "_id": "29fd36ef-8476-464f-9b7d-50b2fa24493f",
+    "owner": "4b0a8305-cf84-4345-b49d-93d2484b2a29",
+    "manager": "a9a2d90f-e6e5-435a-b314-449769a98497",
+    "name": "Modern Apartment",
+    "type": "apartment",
+    "status": "for_sale",
+    "description": "Modern Apartment located in Miami, FL, offering 2 beds and 2 baths.",
     "location": {
-      "street": "456 Oceanfront Drive",
+      "street": "123 Apartment St",
       "city": "Miami",
       "state": "FL",
-      "zipcode": "33101"
+      "zipcode": "12345",
+      "country": "USA",
+      "neighborhood": "Central",
+      "coordinates": {
+        "lat": 40.712776,
+        "lng": -74.005974
+      }
     },
-    "beds": 4,
-    "baths": 3,
-    "square_feet": 2800,
-    "amenities": [
-      "Beach Access",
-      "Swimming Pool",
-      "Balcony/Patio",
-      "Smart TV",
-      "Outdoor Grill/BBQ"
-    ],
-    "rates": {
-      "nightly": 500,
-      "weekly": 2500
-    },
-    "seller_info": {
-      "name": "Sarah Wilson",
-      "email": "sarah@gmail.com",
-      "phone": "305-555-5555"
-    },
-    "images": ["f1.jpg", "f2.jpg", "f3.jpg"],
-    "is_featured": true,
-    "createdAt": "2024-01-06T00:00:00.000Z",
-    "updatedAt": "2024-01-06T00:00:00.000Z"
-  },
-  {
-    "_id": "7",
-    "owner": "4",
-    "name": "Rustic Cabin in the Woods",
-    "type": "Cottage Or Cabin",
-    "description": "Experience nature in this cozy rustic cabin.",
-    "location": {
-      "street": "789 Forest Lane",
-      "city": "Denver",
-      "state": "CO",
-      "zipcode": "80201"
-    },
+    "size": 250,
+    "size_unit": "square_meters",
     "beds": 2,
-    "baths": 1,
-    "square_feet": 1100,
-    "amenities": [
-      "Fireplace",
-      "Outdoor Grill/BBQ",
-      "Hiking Trails Access",
-      "Pet-Friendly"
+    "baths": 2,
+    "features": [
+      "gym",
+      "pool"
     ],
-    "rates": {
-      "nightly": 475,
-      "weekly": 2000
+    "financials": {
+      "rent": 2800,
+      "deposit": 5600,
+      "fees": [
+        {
+          "description": "Cleaning fee",
+          "amount": 100
+        },
+        {
+          "description": "Service charge",
+          "amount": 50
+        }
+      ],
+      "currency": "USD"
     },
-    "seller_info": {
-      "name": "Robert Anderson",
-      "email": "robert@gmail.com",
-      "phone": "303-555-5555"
+    "rental_contract": {
+      "start_date": "2024-07-26T22:31:46.315491",
+      "end_date": "2025-07-26T22:31:46.315494",
+      "monthly_rent": 2800,
+      "payments": [
+        {
+          "date": "2024-08-10T22:31:46.315497",
+          "amount": 2800,
+          "status": "paid"
+        }
+      ]
     },
-    "images": ["g1.jpg", "g2.jpg", "g3.jpg"],
+    "media": {
+      "images": [
+        "https://example.com/images/apartment1.jpg",
+        "https://example.com/images/apartment2.jpg"
+      ],
+      "videos": [
+        "https://example.com/videos/apartment-tour.mp4"
+      ],
+      "floor_plans": [
+        "https://example.com/floor-plans/apartment.png"
+      ]
+    },
     "is_featured": false,
-    "createdAt": "2024-01-07T00:00:00.000Z",
-    "updatedAt": "2024-01-07T00:00:00.000Z"
+    "createdAt": "2024-08-25T22:31:46.315500",
+    "updatedAt": "2024-08-25T22:31:46.315502"
   },
   {
-    "_id": "8",
-    "owner": "5",
-    "name": "Ski-In/Ski-Out Chalet",
-    "type": "Chalet",
-    "description": "Hit the slopes from this cozy ski-in/ski-out chalet.",
+    "_id": "80c1f711-f9e9-4684-803f-650258076cb8",
+    "owner": "4b0a8305-cf84-4345-b49d-93d2484b2a29",
+    "manager": "a9a2d90f-e6e5-435a-b314-449769a98497",
+    "name": "Spacious Villa",
+    "type": "house",
+    "status": "under_maintenance",
+    "description": "Spacious Villa located in Houston, TX, offering 5 beds and 4 baths.",
     "location": {
-      "street": "321 Mountain Road",
-      "city": "Aspen",
-      "state": "CO",
-      "zipcode": "81611"
+      "street": "123 House St",
+      "city": "Houston",
+      "state": "TX",
+      "zipcode": "12345",
+      "country": "USA",
+      "neighborhood": "Central",
+      "coordinates": {
+        "lat": 40.712776,
+        "lng": -74.005974
+      }
     },
+    "size": 400,
+    "size_unit": "square_meters",
+    "beds": 5,
+    "baths": 4,
+    "features": [
+      "garden",
+      "garage"
+    ],
+    "financials": {
+      "rent": 6000,
+      "deposit": 12000,
+      "fees": [
+        {
+          "description": "Cleaning fee",
+          "amount": 100
+        },
+        {
+          "description": "Service charge",
+          "amount": 50
+        }
+      ],
+      "currency": "USD"
+    },
+    "rental_contract": {
+      "start_date": "2024-07-26T22:31:46.315526",
+      "end_date": "2025-07-26T22:31:46.315529",
+      "monthly_rent": 6000,
+      "payments": [
+        {
+          "date": "2024-08-10T22:31:46.315531",
+          "amount": 6000,
+          "status": "paid"
+        }
+      ]
+    },
+    "media": {
+      "images": [
+        "https://example.com/images/house1.jpg",
+        "https://example.com/images/house2.jpg"
+      ],
+      "videos": [
+        "https://example.com/videos/house-tour.mp4"
+      ],
+      "floor_plans": [
+        "https://example.com/floor-plans/house.png"
+      ]
+    },
+    "is_featured": false,
+    "createdAt": "2024-08-25T22:31:46.315535",
+    "updatedAt": "2024-08-25T22:31:46.315537"
+  },
+  {
+    "_id": "8eb20e54-bad7-4a76-a5ad-c34cd30ddcea",
+    "owner": "4b0a8305-cf84-4345-b49d-93d2484b2a29",
+    "manager": "a9a2d90f-e6e5-435a-b314-449769a98497",
+    "name": "Central Apartment",
+    "type": "apartment",
+    "status": "sold",
+    "description": "Central Apartment located in San Francisco, CA, offering 1 beds and 1 baths.",
+    "location": {
+      "street": "123 Apartment St",
+      "city": "San Francisco",
+      "state": "CA",
+      "zipcode": "12345",
+      "country": "USA",
+      "neighborhood": "Central",
+      "coordinates": {
+        "lat": 40.712776,
+        "lng": -74.005974
+      }
+    },
+    "size": 200,
+    "size_unit": "square_meters",
+    "beds": 1,
+    "baths": 1,
+    "features": [
+      "gym",
+      "pool"
+    ],
+    "financials": {
+      "rent": 2500,
+      "deposit": 5000,
+      "fees": [
+        {
+          "description": "Cleaning fee",
+          "amount": 100
+        },
+        {
+          "description": "Service charge",
+          "amount": 50
+        }
+      ],
+      "currency": "USD"
+    },
+    "rental_contract": {
+      "start_date": "2024-07-26T22:31:46.315558",
+      "end_date": "2025-07-26T22:31:46.315561",
+      "monthly_rent": 2500,
+      "payments": [
+        {
+          "date": "2024-08-10T22:31:46.315563",
+          "amount": 2500,
+          "status": "paid"
+        }
+      ]
+    },
+    "media": {
+      "images": [
+        "https://example.com/images/apartment1.jpg",
+        "https://example.com/images/apartment2.jpg"
+      ],
+      "videos": [
+        "https://example.com/videos/apartment-tour.mp4"
+      ],
+      "floor_plans": [
+        "https://example.com/floor-plans/apartment.png"
+      ]
+    },
+    "is_featured": false,
+    "createdAt": "2024-08-25T22:31:46.315566",
+    "updatedAt": "2024-08-25T22:31:46.315568"
+  },
+  {
+    "_id": "9275942c-655e-42a4-a80f-5773a3b46cfd",
+    "owner": "4b0a8305-cf84-4345-b49d-93d2484b2a29",
+    "manager": "a9a2d90f-e6e5-435a-b314-449769a98497",
+    "name": "Suburban House",
+    "type": "house",
+    "status": "available",
+    "description": "Suburban House located in Austin, TX, offering 3 beds and 2 baths.",
+    "location": {
+      "street": "123 House St",
+      "city": "Austin",
+      "state": "TX",
+      "zipcode": "12345",
+      "country": "USA",
+      "neighborhood": "Central",
+      "coordinates": {
+        "lat": 40.712776,
+        "lng": -74.005974
+      }
+    },
+    "size": 300,
+    "size_unit": "square_meters",
     "beds": 3,
     "baths": 2,
-    "square_feet": 1800,
-    "amenities": [
-      "Ski Equipment Storage",
-      "Fireplace",
-      "Balcony/Patio",
-      "Smart TV"
+    "features": [
+      "garden",
+      "garage"
     ],
-    "rates": {
-      "nightly": 300,
-      "weekly": 1100
+    "financials": {
+      "rent": 3500,
+      "deposit": 7000,
+      "fees": [
+        {
+          "description": "Cleaning fee",
+          "amount": 100
+        },
+        {
+          "description": "Service charge",
+          "amount": 50
+        }
+      ],
+      "currency": "USD"
     },
-    "seller_info": {
-      "name": "Jennifer Martin",
-      "email": "jennifer@gmail.com",
-      "phone": "970-555-5555"
+    "rental_contract": {
+      "start_date": "2024-07-26T22:31:46.315589",
+      "end_date": "2025-07-26T22:31:46.315592",
+      "monthly_rent": 3500,
+      "payments": [
+        {
+          "date": "2024-08-10T22:31:46.315595",
+          "amount": 3500,
+          "status": "paid"
+        }
+      ]
     },
-    "images": ["h1.jpg", "h2.jpg", "h3.jpg"],
+    "media": {
+      "images": [
+        "https://example.com/images/house1.jpg",
+        "https://example.com/images/house2.jpg"
+      ],
+      "videos": [
+        "https://example.com/videos/house-tour.mp4"
+      ],
+      "floor_plans": [
+        "https://example.com/floor-plans/house.png"
+      ]
+    },
     "is_featured": false,
-    "createdAt": "2024-01-08T00:00:00.000Z",
-    "updatedAt": "2024-01-08T00:00:00.000Z"
+    "createdAt": "2024-08-25T22:31:46.315608",
+    "updatedAt": "2024-08-25T22:31:46.315609"
   },
   {
-    "_id": "9",
-    "owner": "6",
-    "name": "Mountain View Retreat",
-    "type": "House",
-    "description": "Enjoy stunning mountain views from this spacious retreat.",
+    "_id": "49d9fd0d-d4db-4452-85c4-ebb6f86aa4b1",
+    "owner": "4b0a8305-cf84-4345-b49d-93d2484b2a29",
+    "manager": "a9a2d90f-e6e5-435a-b314-449769a98497",
+    "name": "Industrial Warehouse",
+    "type": "commercial",
+    "status": "rented",
+    "description": "Industrial Warehouse located in Detroit, MI, offering 0 beds and 2 baths.",
     "location": {
-      "street": "600 Summit Drive",
-      "city": "Boulder",
-      "state": "CO",
-      "zipcode": "80301"
+      "street": "123 Commercial St",
+      "city": "Detroit",
+      "state": "MI",
+      "zipcode": "12345",
+      "country": "USA",
+      "neighborhood": "Central",
+      "coordinates": {
+        "lat": 40.712776,
+        "lng": -74.005974
+      }
     },
-    "beds": 4,
-    "baths": 3,
-    "square_feet": 2400,
-    "amenities": [
-      "Mountain View",
-      "Hiking Trails Access",
-      "Air Conditioning",
-      "Smart TV",
-      "Outdoor Grill/BBQ"
+    "size": 150,
+    "size_unit": "square_meters",
+    "beds": 0,
+    "baths": 2,
+    "features": [
+      "garden",
+      "garage"
     ],
-    "rates": {
-      "weekly": 1000,
-      "monthly": 3800
+    "financials": {
+      "rent": 8000,
+      "deposit": 16000,
+      "fees": [
+        {
+          "description": "Cleaning fee",
+          "amount": 100
+        },
+        {
+          "description": "Service charge",
+          "amount": 50
+        }
+      ],
+      "currency": "USD"
     },
-    "seller_info": {
-      "name": "Lisa Taylor",
-      "email": "lisa@gmail.com",
-      "phone": "303-555-5555"
+    "rental_contract": {
+      "start_date": "2024-07-26T22:31:46.315640",
+      "end_date": "2025-07-26T22:31:46.315644",
+      "monthly_rent": 8000,
+      "payments": [
+        {
+          "date": "2024-08-10T22:31:46.315647",
+          "amount": 8000,
+          "status": "paid"
+        }
+      ]
     },
-    "images": ["i1.jpg", "i2.jpg", "i3.jpg"],
+    "media": {
+      "images": [
+        "https://example.com/images/commercial1.jpg",
+        "https://example.com/images/commercial2.jpg"
+      ],
+      "videos": [
+        "https://example.com/videos/commercial-tour.mp4"
+      ],
+      "floor_plans": [
+        "https://example.com/floor-plans/commercial.png"
+      ]
+    },
     "is_featured": false,
-    "createdAt": "2024-01-09T00:00:00.000Z",
-    "updatedAt": "2024-01-09T00:00:00.000Z"
-  },
-  {
-    "_id": "10",
-    "owner": "7",
-    "name": "Historic Downtown Loft",
-    "type": "Apartment",
-    "description": "Step back in time with a stay in this historic downtown loft.",
-    "location": {
-      "street": "123 History Lane",
-      "city": "Philadelphia",
-      "state": "PA",
-      "zipcode": "19101"
-    },
-    "beds": 2,
-    "baths": 1,
-    "square_feet": 1200,
-    "amenities": [
-      "High-Speed Internet",
-      "Air Conditioning",
-      "Smart TV",
-      "Coffee Maker"
-    ],
-    "rates": {
-      "weekly": 550,
-      "monthly": 2100
-    },
-    "seller_info": {
-      "name": "Matthew Harris",
-      "email": "matthew@gmail.com",
-      "phone": "215-555-5555"
-    },
-    "images": ["j1.jpg", "j2.jpg", "j3.jpg"],
-    "is_featured": false,
-    "createdAt": "2024-01-10T00:00:00.000Z",
-    "updatedAt": "2024-01-10T00:00:00.000Z"
+    "createdAt": "2024-08-25T22:31:46.315651",
+    "updatedAt": "2024-08-25T22:31:46.315653"
   }
 ]

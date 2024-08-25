@@ -1,22 +1,36 @@
 import mongoose from 'mongoose';
 
-let connected = false;
+const MONGODB_URI = process.env.MONGODB_URI;
 
-const connectDB = async () => {
-  // NOTE: here we don't need to catch a error and log to the console as any
-  // thrown error will be caught by our error page
-  mongoose.set('strictQuery', true);
+if (!MONGODB_URI) {
+  throw new Error(
+    'Please define the MONGODB_URI environment variable inside .env.local'
+  );
+}
 
-  // If the database is already connected, don't connect again
-  if (connected) {
-    console.log('MongoDB is already connected...');
-    return;
+let cached = global.mongoose;
+
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
+
+async function dbConnect() {
+  if (cached.conn) {
+    return cached.conn;
   }
 
-  // Connect to MongoDB
-  await mongoose.connect(process.env.MONGODB_URI);
-  connected = true;
-  console.log('MongoDB connected...');
-};
+  if (!cached.promise) {
+    const opts = {
+      bufferCommands: false,
+    };
 
-export default connectDB;
+    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
+      return mongoose;
+    });
+  }
+
+  cached.conn = await cached.promise;
+  return cached.conn;
+}
+
+export default dbConnect;

@@ -1,12 +1,12 @@
 import FeaturedPropertyCard from './FeaturedPropertyCard';
-import connectDB from '@/config/database';
-import Property from '@/models/Property';
+import dbConnect from '@/config/database';
+import Property from '@/models/property';
 
 const FeaturedProperties = async () => {
   // NOTE: here we can use a server component and simply query the database
   // directly.
 
-  await connectDB();
+  await dbConnect();
 
   const properties = await Property.find({
     is_featured: true,

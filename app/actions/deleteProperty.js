@@ -1,8 +1,8 @@
 'use server';
 
 import cloudinary from '@/config/cloudinary';
-import connectDB from '@/config/database';
-import Property from '@/models/Property';
+import dbConnect from '@/config/database';
+import Property from '@/models/property';
 import { getSessionUser } from '@/utils/getSessionUser';
 import { revalidatePath } from 'next/cache';
 
@@ -16,7 +16,7 @@ async function deleteProperty(propertyId) {
 
   const { userId } = sessionUser;
 
-  await connectDB();
+  await dbConnect();
 
   const property = await Property.findById(propertyId);
 

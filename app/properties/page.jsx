@@ -1,7 +1,7 @@
 import PropertySearchForm from '@/components/PropertySearchForm';
 import Properties from '@/components/Properties';
-import Property from '@/models/Property';
-import connectDB from '@/config/database';
+import Property from '@/models/property';
+import dbConnect from '@/config/database';
 
 // NOTE: this is a server component so we can use the url search parameters here
 // to query our database directly and then pass the properties to our Properties
@@ -9,7 +9,7 @@ import connectDB from '@/config/database';
 // side and no longer needs to make a fetch request to an API route handler.
 
 const PropertiesPage = async ({ searchParams: { pageSize = 6, page = 1 } }) => {
-  await connectDB();
+  await dbConnect();
 
   const skip = (page - 1) * pageSize;
 

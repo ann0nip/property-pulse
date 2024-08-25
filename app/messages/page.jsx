@@ -1,17 +1,17 @@
 import MessageCard from '@/components/Message';
-import connectDB from '@/config/database';
-import Message from '@/models/Message';
+import dbConnect from '@/config/database';
+import Message from '@/models/message';
 // NOTE: Import the Property model so it is instantiated in our serverless
 // environment to be able to call Message.populate
-import '@/models/Property';
-import { convertToSerializeableObject } from '@/utils/convertToObject';
+import '@/models/property';
+import { convertToSerializableObject } from '@/utils/convertToObject';
 import { getSessionUser } from '@/utils/getSessionUser';
 
 // NOTE: This component has been changed to a server component so we can query
 // the DB directly without the need for a fetch request to an API route.
 
 const MessagePage = async () => {
-  await connectDB();
+  await dbConnect();
 
   const sessionUser = await getSessionUser();
 
@@ -34,9 +34,9 @@ const MessagePage = async () => {
 
   // Convert to serializable object so we can pass to client component.
   const messages = [...unreadMessages, ...readMessages].map((messageDoc) => {
-    const message = convertToSerializeableObject(messageDoc);
-    message.sender = convertToSerializeableObject(messageDoc.sender);
-    message.property = convertToSerializeableObject(messageDoc.property);
+    const message = convertToSerializableObject(messageDoc);
+    message.sender = convertToSerializableObject(messageDoc.sender);
+    message.property = convertToSerializableObject(messageDoc.property);
     return message;
   });
 

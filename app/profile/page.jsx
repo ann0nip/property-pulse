@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import profileDefault from '@/assets/images/profile.png';
 import ProfileProperties from '@/components/ProfileProperties';
-import connectDB from '@/config/database';
+import dbConnect from '@/config/database';
 import { getSessionUser } from '@/utils/getSessionUser';
-import { convertToSerializeableObject } from '@/utils/convertToObject';
-import Property from '@/models/Property';
+import { convertToSerializableObject } from '@/utils/convertToObject';
+import Property from '@/models/property';
 
 // NOTE: This component has been changed to a server component and now fetches
 // the users properties by querying the database directly.
@@ -13,7 +13,7 @@ import Property from '@/models/Property';
 // action.
 
 const ProfilePage = async () => {
-  await connectDB();
+  await dbConnect();
 
   const sessionUser = await getSessionUser();
 
@@ -24,7 +24,7 @@ const ProfilePage = async () => {
   }
 
   const propertiesDocs = await Property.find({ owner: userId }).lean();
-  const properties = propertiesDocs.map(convertToSerializeableObject);
+  const properties = propertiesDocs.map(convertToSerializableObject);
 
   return (
     <section className='bg-blue-50'>

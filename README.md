@@ -138,7 +138,7 @@ The code here has been updated since the course was published to fix bugs found 
 please refer to the [originalcoursecode](https://github.com/bradtraversy/property-pulse/tree/originalCourseCode) branch of this repository.
 
 There are detailed notes in the comments that will hopefully help you understand
-and adopt the changes and corrections.  
+and adopt the changes and corrections.
 An easy way of seeing all the changes and fixes is to use a note highlighter
 extension such as [This one for VSCode](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight) or [this one for Vim](https://github.com/folke/todo-comments.nvim) Where by you can easily list all the **NOTE:** and **FIX:** tags in the comments.
 
@@ -162,7 +162,7 @@ We can do this in our `useEffect` in [components/Navbar.jsx](./components/Navbar
 
 Currently our `aria-expanded` attribute in our menu button is hard coded to
 **false** even when our menu is actually open, which doesn't give the correct
-status to those using accessibility tools like screen readers.  
+status to those using accessibility tools like screen readers.
 For good accessibility in our application, we should ideally set this
 value to state to correctly reflect if the menu is open or not.
 
@@ -192,8 +192,8 @@ remove the check for the component being mounted before rendering the form as th
 
 In our [PropertyAddForm.jsx](./components/PropertyAddForm.jsx) we are using state
 to manage our input values when they change but we never actually do anything with the state as we
-are submitting the form using a form action to our API routes.  
-So we can completely remove the complexity of managing state here.  
+are submitting the form using a form action to our API routes.
+So we can completely remove the complexity of managing state here.
 This greatly simplifies the code in the **PropertyAddForm**.
 
 ## BUG: API routes not sending a JSON response.
@@ -204,7 +204,7 @@ back a **text/plain** Response. This has led to issues for some students in
 fetching the relevant data from our API routes.
 
 If you log out the headers of the Response you will see it has a
-**'Content-Type': 'text/plain'** header, which is the default.  
+**'Content-Type': 'text/plain'** header, which is the default.
 Since we are expecting **JSON** then really we should be sending a a
 **'Content-Type': 'application/json'** header with the Response.
 
@@ -241,7 +241,7 @@ extend: {
   },
 ```
 
-So using the **Poppins** as our **sans** Tailwind font.  
+So using the **Poppins** as our **sans** Tailwind font.
 However we also need to import/source that font if we want to use it in the
 project.
 
@@ -259,17 +259,17 @@ within our application.
 
 In our [app/loading.jsx](app/loading.jsx) `LoadingPage` component we are
 currently receiving a prop of **loading**, however a loading file component
-doesn't actually receive any props - [source](https://nextjs.org/docs/app/api-reference/file-conventions/loading).  
+doesn't actually receive any props - [source](https://nextjs.org/docs/app/api-reference/file-conventions/loading).
 So we can remove the prop entirely.
 
 ## Correction: awaiting resolution of an array of strings
 
 Currently in our [app/api/properties/route.js](app/api/properties/route.js)
 `POST` function for uploading images to Cloudinary, we are awaiting the
-resolution of `imageUploadPromises` using `Promise.all`  
+resolution of `imageUploadPromises` using `Promise.all`
 However `imageUploadPromises` is an Array of Strings - `string[]` not an array
 of Promises. Additionally we are awaiting this on every iteration of our for
-loop.  
+loop.
 So the code here has changed and `imageUploadPromises` has be renamed to
 `imageUrls` to more declaratively represent what Type the Array is.
 
@@ -284,7 +284,7 @@ Currently if we say have **two unread** messages and **one read** message and we
 The UI would not show -3 though as the conditional check in UnreadMessageCount would check for `unreadCount > 0`. But our state will be incorrect.
 
 We can fix this in our [components/Message.jsx](components/Message.jsx) by
-checking **read** while updating our **unreadCount** state.  
+checking **read** while updating our **unreadCount** state.
 While we are here we can also remove the unused import of **useEffect**
 
 # Refactor to use Server components
@@ -319,7 +319,7 @@ The above changes also depend on marking
 to client components as these both require client side JavaScript for user
 interaction.
 
-We also need a small utility function [convertToSerializeableObject](utils/convertToObject.js) as the result of querying our DB using Mongoose gives us back a instance of the Model, but to pass this to our client components the Object needs to be plain JavaScript Object.  
+We also need a small utility function [convertToSerializableObject](utils/convertToObject.js) as the result of querying our DB using Mongoose gives us back a instance of the Model, but to pass this to our client components the Object needs to be plain JavaScript Object.
 So first we call [Model.lean](https://mongoosejs.com/docs/tutorials/lean.html) on the query and then use our utility function to change any properties that have a `.toString` or `.toJSON` method on them to their respective `String` value.
 
 With the above changes in place we no longer need a `fetchProperties` function
@@ -343,7 +343,7 @@ We can then remove the **GET** function from our [app/api/messages/route.js](app
 ## Changes to app/properties/page.jsx
 
 Currently [app/properties/page.jsx](app/properties/page.jsx) is a server
-component but in turn renders [components/Properties.jsx](components/Properties.jsx) on the client and the `Properties` component then makes a fetch request to an API route handler in [app/api/properties/route.js](app/api/properties/route.js) but with the page being server rendered there is no need to do this as we can query the DB directly in our server component and pass props to `Properties` and in turn our `Pagination` component. We can even access the search params in our server component props for querying the DB for pagination.  
+component but in turn renders [components/Properties.jsx](components/Properties.jsx) on the client and the `Properties` component then makes a fetch request to an API route handler in [app/api/properties/route.js](app/api/properties/route.js) but with the page being server rendered there is no need to do this as we can query the DB directly in our server component and pass props to `Properties` and in turn our `Pagination` component. We can even access the search params in our server component props for querying the DB for pagination.
 Our `Pagination` component can also be a server component and instead of buttons
 with click events to navigate the user to the **next** / **prev** pages we can
 use a `Link` component and conditionally render based on if there are next or
@@ -363,7 +363,7 @@ used.
 
 Our [components/PropertyAddForm.jsx](components/PropertyAddForm.jsx) can use a
 [Server Action](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations)
-to submit the form, this removes the need for an API **POST** route handler in **app/api/properties/route.js** The **GET** has already been removed with previous changes so we can now delete that file.  
+to submit the form, this removes the need for an API **POST** route handler in **app/api/properties/route.js** The **GET** has already been removed with previous changes so we can now delete that file.
 A server action automatically receives the **FormData** from the submitted form.
 Additionally by using a server action we can now also use the [useFormStatus
 hook](https://react.dev/reference/react-dom/hooks/useFormStatus) to give the
@@ -380,10 +380,10 @@ them. This is implemented in a new component in [components/SubmitButton.jsx](co
 ## Use a server action to update a property
 
 Much like our **PropertyAddForm** above we can also submit the form via a server
-action.  
+action.
 Our [app/properties/\[id\]/edit/page.jsx](app/properties/[id]/edit/page.jsx) page
 component is already a server component so we can query the DB directly for the
-property we want to update and pass this as a prop to our [PropertEditForm](components/PropertyEditForm.jsx), we can then use this data to pre populate the input values with the existing values and remove all the state, hooks and onChange event handlers from the PropertyEditForm component.  
+property we want to update and pass this as a prop to our [PropertEditForm](components/PropertyEditForm.jsx), we can then use this data to pre populate the input values with the existing values and remove all the state, hooks and onChange event handlers from the PropertyEditForm component.
 We can also reuse our new [components/SubmitButton.jsx](components/SubmitButton.jsx) component to again give the user some feedback about the state of the form submission.
 
 With these changes in place we can then remove the **GET /api/properties/:id**
@@ -403,15 +403,15 @@ to make the edit page only accessible to authenticated users.
 ## Make the profile page a server component
 
 Our [app/profile/page.jsx](app/profile/page.jsx) can be made into a server
-component and fetch the users properties by directly querying the database.  
+component and fetch the users properties by directly querying the database.
 However we still need to dynamically update the users properties on the client
-if and when a property is deleted by the user.  
+if and when a property is deleted by the user.
 We can do this by making a new client component [components/ProfileProperties.jsx](components/ProfileProperties.jsx) that receives the properties as a prop sets them in local state.
 
 ### Deleting a property with a server action
 
 Server actions can be used for more than just form submissions, we can trigger
-them on a button click from a client component - [source](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations#non-form-elements).  
+them on a button click from a client component - [source](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations#non-form-elements).
 So we have a new action in [deleteProperty.js](app/actions/deleteProperty.js)
 that is triggered when the user clicks to delete a property.
 
@@ -430,7 +430,7 @@ We also no longer need a **DELETE** route handler in our [app/api/properties/\[i
 
 We have already made our [components/Message.jsx](components/Message.jsx) a
 server component that queries the database directly, we can also create two new
-server actions [app/actions/markMessageAsRead.js](app/actions/markMessageAsRead.js) and [app/actions/deleteMessage.js](app/actions/deleteMessage.js) to mark a message as read and to delete a message respectively.  
+server actions [app/actions/markMessageAsRead.js](app/actions/markMessageAsRead.js) and [app/actions/deleteMessage.js](app/actions/deleteMessage.js) to mark a message as read and to delete a message respectively.
 With this in place we can then delete our [app/api/messages/\[id\]/route.js](app/api/messages/[id]/route.js)
 
 **Changes can be seen in**
@@ -444,8 +444,8 @@ With this in place we can then delete our [app/api/messages/\[id\]/route.js](app
 
 We are already _getting_, _deleting_ and _marking as read_ the users messages using
 server components and server actions so the last one to do for this part of the
-application functionality is to make [components/PropertyContactForm.jsx](components/PropertyContactForm.jsx) use a [new server action](app/actions/addMessage.js) to send a message.  
-We can use the [useFormStatus](https://react.dev/reference/react-dom/hooks/useFormStatus) and [useFormState](https://react.dev/reference/react-dom/hooks/useFormState) hooks to give some feedback to the user about the state of the submission and show a toast message or error depending on the server response.  
+application functionality is to make [components/PropertyContactForm.jsx](components/PropertyContactForm.jsx) use a [new server action](app/actions/addMessage.js) to send a message.
+We can use the [useFormStatus](https://react.dev/reference/react-dom/hooks/useFormStatus) and [useFormState](https://react.dev/reference/react-dom/hooks/useFormState) hooks to give some feedback to the user about the state of the submission and show a toast message or error depending on the server response.
 With these changes we can then delete the [app/api/messages/route.js](app/api/messages/route.js) file as it's not longer used.
 
 **Changes can be seen in**
@@ -458,7 +458,7 @@ With these changes we can then delete the [app/api/messages/route.js](app/api/me
 
 In our [components/BookmarkButton.jsx](components/BookmarkButton.jsx) we can
 check the status of a bookmark for the user and toggle the bookmark by using two
-new server actions.  
+new server actions.
 With this change we can then remove our [app/api/bookmarks/check/route.js](app/api/bookmarks/check/route.js) and [app/api/bookmarks/route.js](app/api/bookmarks/route.js) API route handlers.
 
 **Changes can be seen in**
@@ -471,13 +471,13 @@ With this change we can then remove our [app/api/bookmarks/check/route.js](app/a
 
 ## Get unread message count with a server action
 
-We have one remaining API route handler for getting the unread message count.  
+We have one remaining API route handler for getting the unread message count.
 But we can use a server action here too.
 Currently we are making a fetch request to an API route handler to get the
 unread message count in our [UnreadMessageCount.jsx](components/UnreadMessageCount.jsx) component but since the
 [GlobalContext](context/GlobalContext.js) is responsible for managing this state
 then it makes sense to use our new server action in the GlobalContext Provider
-component, which we can do in a **useEffect**.  
+component, which we can do in a **useEffect**.
 Fetching the unread message count does however rely on a user being currenlty
 logged in, so to be able to consume **AuthProvder** state our **GlobalContext**
 needs to be a descendent of the **AuthProvider**.
@@ -498,9 +498,9 @@ needs to be a descendent of the **AuthProvider**.
 
 NextJS allows us to set env variables dynamically in our [next.config.mjs](next.config.mjs)
 We can use this to get the deployed site url at build time in production and
-fallback to **localhost** in development.  
+fallback to **localhost** in development.
 This avoids having to first deploy the site, then get the site url and manually
-set it as a env varialble after the build then rebuild the deployed app.  
+set it as a env varialble after the build then rebuild the deployed app.
 We can also do the same in our [ShareButtons.jsx](components/ShareButtons.jsx)
 
 > NOTE: we need to check `process.env.VERCEL_URL` on the server so we do this in
@@ -508,7 +508,7 @@ We can also do the same in our [ShareButtons.jsx](components/ShareButtons.jsx)
 > [app/properties/\[id\]/page.jsx](app/properties/[id]/page.jsx)
 
 Together with moving the majority of our data fetching to our server components
-and removing many of our API route handlers we can also remove **NEXT_PUBLIC_DOMAIN** and **NEXT_PUBLIC_API_DOMAIN** from our **.env** file which streamlines the process of moving to production from development.  
+and removing many of our API route handlers we can also remove **NEXT_PUBLIC_DOMAIN** and **NEXT_PUBLIC_API_DOMAIN** from our **.env** file which streamlines the process of moving to production from development.
 We only needed these because we were making fetch requests from server components to API route handlers.
 
 **Changes can be seen in**
@@ -543,11 +543,11 @@ throw new Error('This is just a test error');
 ## Remove try catch block from getSessionUser
 
 When `next build` runs it attempts to statically generate pages, but some of our
-pages require dynamic data such as any page that uses an auth session.  
+pages require dynamic data such as any page that uses an auth session.
 By catching an error in our [getSessionUser](utils/getSessionUser.js)
 function **we** are catching an error in our code, and so Next doesn't catch
 the error, so it doens't know it can't statically generate those pages and our
-build will fail.  
+build will fail.
 So we need to remove the try catch block from [getSessionUser](utils/getSessionUser.js)
 so the error is caught at build time by Next.
 

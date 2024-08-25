@@ -1,13 +1,13 @@
 'use server';
 
-import connectDB from '@/config/database';
-import Property from '@/models/Property';
+import dbConnect from '@/config/database';
+import Property from '@/models/property';
 import { getSessionUser } from '@/utils/getSessionUser';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
 async function updateProperty(propertyId, formData) {
-  await connectDB();
+  await dbConnect();
 
   const sessionUser = await getSessionUser();
 

@@ -1,11 +1,11 @@
 'use server';
 
-import connectDB from '@/config/database';
-import Message from '@/models/Message';
+import dbConnect from '@/config/database';
+import Message from '@/models/message';
 import { getSessionUser } from '@/utils/getSessionUser';
 
 async function markMessageAsRead(messageId) {
-  await connectDB();
+  await dbConnect();
   const sessionUser = await getSessionUser();
   if (!sessionUser || !sessionUser.user) {
     throw new Error('User ID is required');

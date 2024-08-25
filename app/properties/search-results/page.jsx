@@ -2,9 +2,9 @@ import Link from 'next/link';
 import { FaArrowAltCircleLeft } from 'react-icons/fa';
 import PropertyCard from '@/components/PropertyCard';
 import PropertySearchForm from '@/components/PropertySearchForm';
-import connectDB from '@/config/database';
-import Property from '@/models/Property';
-import { convertToSerializeableObject } from '@/utils/convertToObject';
+import dbConnect from '@/config/database';
+import Property from '@/models/property';
+import { convertToSerializableObject } from '@/utils/convertToObject';
 
 // NOTE: This component has been changed to a server component where we can
 // query the database directly.
@@ -16,7 +16,7 @@ import { convertToSerializeableObject } from '@/utils/convertToObject';
 const SearchResultsPage = async ({
   searchParams: { location, propertyType },
 }) => {
-  await connectDB();
+  await dbConnect();
 
   const locationPattern = new RegExp(location, 'i');
 
@@ -39,7 +39,7 @@ const SearchResultsPage = async ({
   }
 
   const propertiesQueryResults = await Property.find(query).lean();
-  const properties = convertToSerializeableObject(propertiesQueryResults);
+  const properties = convertToSerializableObject(propertiesQueryResults);
 
   return (
     <>

@@ -7,39 +7,43 @@ import PropertyContactForm from '@/components/PropertyContactForm';
 import ShareButtons from '@/components/ShareButtons';
 import { FaArrowLeft } from 'react-icons/fa';
 import connectDB from '@/config/database';
-import Property from '@/models/Property';
-import { convertToSerializeableObject } from '@/utils/convertToObject';
+import Property from '@/models/property';
+import { convertToSerializableObject } from '@/utils/convertToObject';
 
 const PropertyPage = async ({ params }) => {
-  // NOTE: No need for making a fetch request here to our API routes, we can
-  // simply make this component a server component and query the DB directly.
-
-  // NOTE: here we can check if we are running in in production on vercel and get
-  // the public URL at build time for the ShareButtons, or fall back to localhost in development.
   const PUBLIC_DOMAIN = process.env.VERCEL_URL
     ? `https://${process.env.VERCEL_URL}`
     : 'http://localhost:3000';
 
   await connectDB();
 
-  // query the property in the DB
-  const propertyDoc = await Property.findById(params.id).lean();
+  const propertyDoc = await Property.findById(
+    '4c880a7c-d44b-4cbb-883b-684181fd4702'
+  ).lean();
 
-  // convert the document to a plain js object so we can pass to client
-  // components
-  const property = convertToSerializeableObject(propertyDoc);
+  const property = convertToSerializableObject(propertyDoc);
 
   if (!property) {
     return (
-      <h1 className='text-center text-2xl font-bold mt-10'>
-        Property Not Found
-      </h1>
+      <section className='container m-auto py-10 px-6'>
+        <h1 className='text-center text-2xl font-bold mt-10'>
+          Property Not Found
+        </h1>
+        <div className='text-center mt-4'>
+          <Link
+            href='/properties'
+            className='text-blue-500 hover:text-blue-600'
+          >
+            Back to Properties
+          </Link>
+        </div>
+      </section>
     );
   }
 
   return (
     <>
-      <PropertyHeaderImage image={property.images[0]} />
+      {/* <PropertyHeaderImage image={property.media.images[0]} /> */}
       <section>
         <div className='container m-auto py-6 px-6'>
           <Link
@@ -63,8 +67,10 @@ const PropertyPage = async ({ params }) => {
           </div>
         </div>
       </section>
-      <PropertyImages images={property.images} />
+
+      {/* <PropertyImages images={property.media.images} /> */}
     </>
   );
 };
+
 export default PropertyPage;

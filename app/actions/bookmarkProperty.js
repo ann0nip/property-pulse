@@ -1,12 +1,12 @@
 'use server';
 
-import connectDB from '@/config/database';
-import User from '@/models/User';
+import dbConnect from '@/config/database';
+import User from '@/models/user';
 import { getSessionUser } from '@/utils/getSessionUser';
 import { revalidatePath } from 'next/cache';
 
 async function bookmarkProperty(propertyId) {
-  await connectDB();
+  await dbConnect();
 
   const sessionUser = await getSessionUser();
 

@@ -1,12 +1,12 @@
 'use server';
 
-import connectDB from '@/config/database';
-import Message from '@/models/Message';
+import dbConnect from '@/config/database';
+import Message from '@/models/message';
 import { getSessionUser } from '@/utils/getSessionUser';
 import { revalidatePath } from 'next/cache';
 
 async function deleteMessage(messageId) {
-  await connectDB();
+  await dbConnect();
 
   const sessionUser = await getSessionUser();
 

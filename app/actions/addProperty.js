@@ -1,14 +1,14 @@
 'use server';
 
-import connectDB from '@/config/database';
-import Property from '@/models/Property';
+import dbConnect from '@/config/database';
+import Property from '@/models/property';
 import { getSessionUser } from '@/utils/getSessionUser';
 import cloudinary from '@/config/cloudinary';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
 async function addProperty(formData) {
-  await connectDB();
+  await dbConnect();
 
   const sessionUser = await getSessionUser();
 

@@ -1,11 +1,11 @@
 'use server';
 
-import connectDB from '@/config/database';
-import User from '@/models/User';
+import dbConnect from '@/config/database';
+import User from '@/models/user';
 import { getSessionUser } from '@/utils/getSessionUser';
 
 async function checkBookmarkStatus(propertyId) {
-  await connectDB();
+  await dbConnect();
 
   const sessionUser = await getSessionUser();
 

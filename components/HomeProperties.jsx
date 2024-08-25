@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import PropertyCard from '@/components/PropertyCard';
-import connectDB from '@/config/database';
-import Property from '@/models/Property';
+import dbConnect from '@/config/database';
+import Property from '@/models/property';
 
 const HomeProperties = async () => {
   // NOTE: Here we can query the DB directly if we use a server
@@ -10,13 +10,14 @@ const HomeProperties = async () => {
   // unnecessary additional step and you also need a full URL, i.e.
   // localhost:3000 in dev or the site URL in production.
 
-  await connectDB();
+  await dbConnect();
 
   // Get the 3 latest properties
   const recentProperties = await Property.find({})
     .sort({ createdAt: -1 })
     .limit(3)
     .lean();
+  console.log('recentProperties', recentProperties);
 
   return (
     <>

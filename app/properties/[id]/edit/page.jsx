@@ -1,20 +1,20 @@
 import PropertyEditForm from '@/components/PropertyEditForm';
-import connectDB from '@/config/database';
-import Property from '@/models/Property';
-import { convertToSerializeableObject } from '@/utils/convertToObject';
+import dbConnect from '@/config/database';
+import Property from '@/models/property';
+import { convertToSerializableObject } from '@/utils/convertToObject';
 
 // NOTE: this can be a server component and we can query the DB for the property
 // directly and pass to our PropertyEditForm
 
 const PropertyEditPage = async ({ params }) => {
-  await connectDB();
+  await dbConnect();
 
   // query the property in the DB
   const propertyDoc = await Property.findById(params.id).lean();
 
   // convert the document to a plain js object so we can pass to client
   // components
-  const property = convertToSerializeableObject(propertyDoc);
+  const property = convertToSerializableObject(propertyDoc);
 
   if (!property) {
     return (
